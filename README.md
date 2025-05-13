@@ -1,12 +1,34 @@
-# React + Vite
+🚗 Car Rental — сайт оренди авто
+Проєкт — адаптивний сайт оренди автомобілів, створений як портфоліо-робота.
+Містить головну сторінку hero, каталог з фільтрами, та сторінку детального опису автомобіля.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🔧 Технології
+HTML5 / CSS3 / JavaScript / React
 
-Currently, two official plugins are available:
+Flexbox  для компонування
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Адаптивна верстка (мобільна, планшет, десктоп)
 
-## Expanding the ESLint configuration
+Шрифти підключені через <link> 
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Зображення оптимізовані для web
+
+
+🔹 Функціонал сайту
+ Форма фільтрації авто — користувач може обрати авто за брендом, ціною, пробігом
+
+ Картки автомобілів — зображення, назва, характеристики, кнопка "Read more"
+
+ Hero секція — фонове зображення з кнопкою заклику до дії
+
+ Адаптивний інтерфейс — виглядає добре на мобільних, планшетах і десктопах
+
+ Кнопка “Load More”  — для підвантаження нових машин
+
+ Інтуїтивний та сучасний дизайн — з акцентами на UI/UX
+
+ Можливість розширення — можна легко додати сторінку "Про нас", "Бронювання" тощо
+
+
+
+
