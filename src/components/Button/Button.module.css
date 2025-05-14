@@ -1,0 +1,27 @@
+.btnSmall {
+    width: 156px;
+    height: 44px;
+    background-color: #3470ff;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #fff;
+    cursor: pointer;
+}
+.btnSmall:hover {
+    background-color: #0b44cd;
+}
+.btnBig {
+    width: 276px;
+}
+
+.btnLoadMore {
+    border: 1px solid #3470ff;
+    background-color: transparent;
+    color: #101828;
+}
+.btnLoadMore:hover {
+    border-color: #0b44cd;
+    background-color: transparent;
+}
