@@ -1,4 +1,6 @@
-import HeroSection from '../../components/HeroSection/HeroSection';
+import { lazy } from 'react';
+
+const HeroSection = lazy(() => import('../../components/HeroSection/HeroSection'));
 
 const HomePage = () => {
     return (

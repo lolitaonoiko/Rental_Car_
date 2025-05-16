@@ -1,7 +1,14 @@
-import Button from '../Button/Button';
+import { lazy } from 'react';
 import s from './HeroSection.module.css';
+import { useNavigate } from 'react-router-dom';
+
+const Button = lazy(() => import('../Button/Button'));
 
 const HeroSection = () => {
+    const navigate = useNavigate();
+    const handleBtnClick = () => {
+        return navigate('/catalog');
+    };
     return (
         <div className={s.heroBack}>
             <div>
@@ -9,7 +16,7 @@ const HeroSection = () => {
                 <p className={s.descr}>Reliable and budget-friendly rentals for any journey</p>
             </div>
 
-            <Button text={'View Catalog'} big />
+            <Button onClick={handleBtnClick} text={'View Catalog'} big />
         </div>
     );
 };

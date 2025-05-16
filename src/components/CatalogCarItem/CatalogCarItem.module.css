@@ -1,0 +1,47 @@
+.carItem {
+    width: 276px;
+    height: 424px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.img {
+    border-radius: 14px;
+    object-fit: cover;
+
+    width: 276px;
+    height: 268px;
+    margin-bottom: 16px;
+}
+.favBtn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    cursor: pointer;
+}
+.carTitleBox {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+.title {
+    font-weight: 500;
+    line-height: 1.25;
+}
+.model {
+    color: #3470ff;
+}
+.descrList {
+    display: flex;
+    flex-wrap: wrap;
+}
+.descrListItem {
+    font-weight: 400;
+    font-size: 12px;
+
+    color: #8d929a;
+    border-right: 1px solid #dadde1;
+    margin-right: 6px;
+    padding-right: 6px;
+}

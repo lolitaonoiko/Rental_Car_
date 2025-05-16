@@ -46,6 +46,8 @@ p {
     margin-bottom: 0;
 }
 ul,
+dl,
+dt,
 ol {
     margin-top: 0;
     margin-bottom: 0;

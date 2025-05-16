@@ -1,7 +1,8 @@
-import Navigation from '../Navigation/Navigation';
-import Logo from '../Logo/Logo';
-
 import s from './Header.module.css';
+import { lazy } from 'react';
+
+const Logo = lazy(() => import('../Logo/Logo'));
+const Navigation = lazy(() => import('../Navigation/Navigation'));
 
 const Header = () => {
     return (

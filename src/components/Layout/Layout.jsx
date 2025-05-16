@@ -1,12 +1,13 @@
-import { Suspense } from 'react';
+import { lazy, Suspense } from 'react';
 
-import Header from '../Header/Header';
+const Header = lazy(() => import('../Header/Header.jsx'));
+const Loader = lazy(() => import('../Loader/Loader.jsx'));
 
 const Layout = ({ children }) => {
     return (
         <div>
             <Header />
-            <Suspense fallback={null}>{children}</Suspense>
+            <Suspense fallback={<Loader />}>{children}</Suspense>
         </div>
     );
 };
