@@ -17,8 +17,6 @@ const FilterBar = () => {
     const dispatch = useDispatch();
 
     const handleSubmit = e => {
-        console.log(e);
-
         e.preventDefault();
         const brandValue = e.target.elements[0].value;
         const priceValue = e.target.elements[1].value;
