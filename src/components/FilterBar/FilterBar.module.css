@@ -1,0 +1,16 @@
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    gap: 16px;
+    padding: 16px;
+    margin-bottom: 40px;
+}
+.mileageText {
+    font-weight: 400;
+    font-size: 12px;
+
+    line-height: 1.33333;
+    color: #8d929a;
+    margin-bottom: 8px;
+}

@@ -1,0 +1,31 @@
+.typeFrom {
+    border-radius: 12px 0 0 12px;
+    width: 160px;
+    height: 44px;
+    background-color: #f7f7f7;
+    outline: transparent;
+    border-color: transparent;
+    border-right: 1px solid #dadde1;
+    padding: 12px 24px;
+
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+
+    line-height: 20px;
+    line-height: 1.25;
+    color: #101828;
+}
+.typeTo {
+    border-radius: 0 12px 12px 0;
+    border-right: none;
+}
+.typeFrom::placeholder {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+
+    line-height: 20px;
+    line-height: 1.25;
+    color: #101828;
+}

@@ -1,8 +1,8 @@
-import { lazy, useEffect } from 'react';
+import { lazy, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { selectCarsIsLoading } from '../../redux/cars/selectors';
-import { getCars } from '../../redux/cars/operations';
+import { selectBrands, selectCars, selectCarsIsLoading, selectCarsPage, selectCarsTotalPages } from '../../redux/cars/selectors';
+import { getBrands, getCars } from '../../redux/cars/operations';
 
 import s from './CatalogPage.module.css';
 
@@ -12,22 +12,41 @@ const Loader = lazy(() => import('../../components/Loader/Loader'));
 const Button = lazy(() => import('../../components/Button/Button'));
 
 const CatalogPage = () => {
-    // const [searchParams, setSearchParams] = useSearchParams();
-
     const isLoading = useSelector(selectCarsIsLoading);
+    const brands = useSelector(selectBrands);
+    const cars = useSelector(selectCars);
+    const page = useSelector(selectCarsPage);
+    const totalPages = useSelector(selectCarsTotalPages);
     const dispatch = useDispatch();
+    const hasBrands = useRef(false);
 
     useEffect(() => {
-        dispatch(getCars());
-    }, [dispatch]);
+        if (!hasBrands.current && !brands.length) {
+            dispatch(getBrands());
+            hasBrands.current = true;
+        }
+    }, [dispatch, brands]);
 
-    return isLoading ? (
-        <Loader />
-    ) : (
+    useEffect(() => {
+        if (cars.length === 0 && totalPages === null) {
+            dispatch(getCars({ page: 1 }));
+        }
+    }, [dispatch, page, cars.length, totalPages]);
+
+    const handleOnCLickBtn = e => {
+        e.preventDefault();
+        if (page < totalPages) {
+            dispatch(getCars({ page: page + 1 }));
+        }
+    };
+
+    return (
         <section className={s.section}>
             <FilterBar />
-            <CatalogCarsList />
-            <Button text={'Load More'} loadMore />
+            {totalPages !== 0 && <CatalogCarsList />}
+            {page < totalPages && !isLoading && <Button text="Load More" loadMore onClick={handleOnCLickBtn} />}
+            {isLoading && <Loader />}
+            {totalPages === 0 && <p>No cars were found for the selected parameters.</p>}
         </section>
     );
 };

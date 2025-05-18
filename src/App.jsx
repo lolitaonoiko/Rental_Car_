@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 
 import { lazy } from 'react';
+import { ToastContainer } from 'react-toastify';
 
 const Layout = lazy(() => import('./components/Layout/Layout.jsx'));
 const CatalogPage = lazy(() => import('./pages/CatalogPage/CatalogPage.jsx'));
@@ -19,6 +20,7 @@ function App() {
                     <Route path="/catalog/:id" element={<CarDetailsPage />} />
                     <Route path="*" element={<NotFoundPage />} />
                 </Routes>
+                <ToastContainer position="bottom-right" />
             </Layout>
         </>
     );

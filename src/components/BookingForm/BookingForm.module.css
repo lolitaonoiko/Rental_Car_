@@ -1,0 +1,51 @@
+.box {
+}
+.form {
+    border: 1px solid #dadde1;
+    border-radius: 10px;
+    padding: 32px;
+    width: 640px;
+    height: 488px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.inpts {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+.inpt {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #8d929a;
+    border-radius: 12px;
+    padding: 12px 20px;
+    width: 576px;
+    height: 48px;
+    background-color: #f7f7f7;
+    border: none;
+    outline: none;
+}
+.formText {
+    margin-bottom: 24px;
+    align-items: start;
+}
+.textarea {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #8d929a;
+    border-radius: 12px;
+    padding: 12px 20px 56px 20px;
+    width: 576px;
+    height: 88px;
+    background-color: #f7f7f7;
+    border: none;
+    outline: none;
+    resize: none;
+}

@@ -1,0 +1,16 @@
+.section {
+    display: flex;
+    margin: 0 auto;
+    max-width: 1220px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 84px;
+    padding-bottom: 104px;
+    gap: 72px;
+}
+.descr {
+    display: flex;
+    flex-direction: column;
+    gap: 110px;
+    justify-content: start;
+}

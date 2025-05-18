@@ -7,11 +7,6 @@ html {
 }
 
 :root {
-    font-family: 'Manrope', sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -20,9 +15,14 @@ html {
 button {
     border: none;
     background-color: transparent;
+    cursor: pointer;
 }
 
 body {
+    font-family: 'Manrope', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
     margin: 0;
     padding: 0;
     /* min-width: 320px;

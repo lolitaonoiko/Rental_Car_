@@ -1,12 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getCars } from './operations';
+import { getBrands, getCarById, getCars } from './operations';
 
 const initialState = {
-    items: [],
+    cars: [],
+    carItem: [],
+    brands: [],
+    favorites: [],
+    filters: {
+        brand: '',
+        rentalPrice: '',
+        minMileage: '',
+        maxMileage: '',
+    },
     isLoading: false,
     isError: null,
     page: 1,
-    totalItems: 0,
+    totalPages: null,
 };
 
 const slice = createSlice({
@@ -16,17 +25,42 @@ const slice = createSlice({
         builder
             .addCase(getCars.pending, state => {
                 state.isLoading = true;
+                state.isError = null;
             })
             .addCase(getCars.fulfilled, (state, action) => {
                 state.isError = null;
                 state.isLoading = false;
-                state.items = action.payload.cars;
-                state.page = action.payload.page;
-                state.totalItems = action.payload.totalPages;
+                state.totalPages = action.payload.totalPages;
+                state.page = Number(action.payload.page);
+
+                if (action.payload.page > 1) {
+                    const moreCars = action.payload.cars;
+                    state.cars = [...state.cars, ...moreCars];
+                } else {
+                    state.cars = action.payload.cars;
+                }
             })
             .addCase(getCars.rejected, (state, action) => {
                 state.isLoading = false;
                 state.isError = action.payload;
+            })
+            .addCase(getBrands.pending, state => {
+                state.isLoading = true;
+                state.isError = null;
+            })
+            .addCase(getBrands.fulfilled, (state, action) => {
+                state.isError = null;
+                state.isLoading = false;
+                state.brands = action.payload;
+            })
+            .addCase(getBrands.rejected, (state, action) => {
+                state.isLoading = false;
+                state.isError = action.payload;
+            })
+            .addCase(getCarById.fulfilled, (state, action) => {
+                state.isError = null;
+                state.isLoading = false;
+                state.carItem = action.payload;
             });
     },
 });

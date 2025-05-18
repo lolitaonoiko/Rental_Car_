@@ -8,6 +8,7 @@
     line-height: 1.25;
     color: #fff;
     cursor: pointer;
+    margin: 0 auto;
 }
 .btnSmall:hover {
     background-color: #0b44cd;
