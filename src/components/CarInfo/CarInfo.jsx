@@ -1,22 +1,37 @@
 import { useSelector } from 'react-redux';
 import s from './CarInfo.module.css';
 import { selectCarItem } from '../../redux/cars/selectors';
+import { useEffect, useState } from 'react';
 
 const CarInfo = () => {
     const car = useSelector(selectCarItem);
+    const [city, setCity] = useState('');
+    const [country, setCountry] = useState('');
+
+    useEffect(() => {
+        if (car.address && typeof car.address === 'string') {
+            const splitedAddress = car.address.split(',');
+            setCity(splitedAddress[1]?.trim() || '');
+            setCountry(splitedAddress[2]?.trim() || '');
+        }
+    }, [car.address]);
+
     return (
         <div className={s.box}>
-            <h2>
-                {car.brand}, {car.year}
+            <h2 className={s.title}>
+                {car.brand} {car.model}, {car.year}
             </h2>
-            <p className={s.id}>{car.id}</p>
-            <div>
+            <p className={s.id}>id:{car.id}</p>
+            <div className={s.addressList}>
                 <span>
                     <svg width="16" height="16">
                         <use href="/public/icons/sprite.svg#icon-location"></use>
                     </svg>
                 </span>
-                <p className={s.addrs}>{car.address}</p>
+                <p className={s.addrs}>
+                    {city}, {country}
+                </p>
+                <p>Mileage: {car.mileage} km</p>
             </div>
             <p className={s.price}>${car.rentalPrice}</p>
             <p className={s.desc}>{car.description}</p>

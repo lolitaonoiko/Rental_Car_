@@ -20,6 +20,9 @@
     right: 16px;
     cursor: pointer;
 }
+.favBtnActv {
+    fill: #3470ff;
+}
 .carTitleBox {
     display: flex;
     justify-content: space-between;

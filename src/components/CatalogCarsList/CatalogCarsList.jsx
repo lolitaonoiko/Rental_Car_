@@ -15,18 +15,7 @@ const CatalogCarsList = () => {
             <ul className={s.carsList}>
                 {cars.map(car => (
                     <li key={car.id}>
-                        <CatalogCarItem
-                            id={car.id}
-                            model={car.model}
-                            year={car.year}
-                            brand={car.brand}
-                            type={car.type}
-                            img={car.img}
-                            rentComp={car.rentalCompany}
-                            rentPrice={car.rentalPrice}
-                            address={car.address}
-                            mileage={car.mileage}
-                        />
+                        <CatalogCarItem car={car} />
                     </li>
                 ))}
             </ul>

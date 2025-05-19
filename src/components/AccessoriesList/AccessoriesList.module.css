@@ -1,6 +1,7 @@
 .listItem {
     display: flex;
     gap: 8px;
+    margin-bottom: 16px;
 }
 .title {
     font-weight: 600;
