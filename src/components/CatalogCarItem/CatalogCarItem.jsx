@@ -48,7 +48,7 @@ const CatalogCarItem = ({ car }) => {
                 <img className={s.img} src={car.img} alt="Car photo" />
                 <button onClick={handleOnClickFavBtn} className={buildFavClass(isFav)}>
                     <svg width="16" height="16">
-                        <use href={`/public/icons/sprite.svg#${isFav}`}></use>
+                        <use href={`/icons/sprite.svg#${isFav}`}></use>
                     </svg>
                 </button>
                 <div className={s.carTitleBox}>

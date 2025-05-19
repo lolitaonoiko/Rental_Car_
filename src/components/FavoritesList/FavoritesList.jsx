@@ -32,7 +32,7 @@ const FavoritesList = () => {
         <>
             <Button id="basic-button" aria-controls={open ? 'basic-menu' : undefined} aria-haspopup="true" aria-expanded={open ? 'true' : undefined} onClick={handleClick} className={s.btnFav}>
                 <svg width="16" height="16" className={s.favIcon}>
-                    <use href="/public/icons/sprite.svg#icon-like-active"></use>
+                    <use href="/icons/sprite.svg#icon-like-active"></use>
                 </svg>
             </Button>
             <Menu
