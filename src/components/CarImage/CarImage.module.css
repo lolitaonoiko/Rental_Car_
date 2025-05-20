@@ -1,4 +1,11 @@
-.img {
+.smallImg {
+    border-radius: 14px;
+    width: 276px;
+    height: 268px;
+    object-fit: cover;
+    margin-bottom: 16px;
+}
+.largeImg {
     border-radius: 19px;
     width: 640px;
     height: 512px;

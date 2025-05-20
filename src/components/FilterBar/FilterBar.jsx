@@ -38,7 +38,7 @@ const FilterBar = () => {
     };
 
     return (
-        <div>
+        <>
             <form className={s.form} onSubmit={handleSubmit}>
                 <DropDown items={brands} text={'Choose a brand'} />
                 <DropDown items={prices} text={'Choose a price'} />
@@ -52,7 +52,7 @@ const FilterBar = () => {
 
                 <Button text={'Search'} type={'submit'} />
             </form>
-        </div>
+        </>
     );
 };
 

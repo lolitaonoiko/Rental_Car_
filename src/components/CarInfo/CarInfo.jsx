@@ -22,12 +22,12 @@ const CarInfo = () => {
                 {car.brand} {car.model}, {car.year}
             </h2>
             <p className={s.id}>id:{car.id}</p>
+            <span className={s.icon}>
+                <svg width="16" height="16">
+                    <use href="/public/icons/sprite.svg#icon-location"></use>
+                </svg>
+            </span>
             <div className={s.addressList}>
-                <span>
-                    <svg width="16" height="16">
-                        <use href="/public/icons/sprite.svg#icon-location"></use>
-                    </svg>
-                </span>
                 <p className={s.addrs}>
                     {city}, {country}
                 </p>

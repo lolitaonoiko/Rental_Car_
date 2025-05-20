@@ -8,6 +8,7 @@ import s from './CatalogCarItem.module.css';
 import { addFavCar } from '../../redux/cars/slice';
 
 const Button = lazy(() => import('../Button/Button'));
+const CarImage = lazy(() => import('../CarImage/CarImage'));
 
 const CatalogCarItem = ({ car }) => {
     const [city, setCity] = useState('');
@@ -45,7 +46,7 @@ const CatalogCarItem = ({ car }) => {
     return (
         <div className={s.carItem}>
             <div>
-                <img className={s.img} src={car.img} alt="Car photo" />
+                <CarImage src={car.img} alt={'Small car photo'} />
                 <button onClick={handleOnClickFavBtn} className={buildFavClass(isFav)}>
                     <svg width="16" height="16">
                         <use href={`/icons/sprite.svg#${isFav}`}></use>

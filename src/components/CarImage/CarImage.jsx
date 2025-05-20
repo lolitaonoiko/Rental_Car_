@@ -1,13 +1,14 @@
-import { useSelector } from 'react-redux';
-import { selectCarItem } from '../../redux/cars/selectors';
-
+import clsx from 'clsx';
 import s from './CarImage.module.css';
 
-const CarImage = () => {
-    const car = useSelector(selectCarItem);
+const CarImage = ({ size = 'small', src, alt }) => {
+    const buildImgClass = size => {
+        return clsx(s.smallImg, size === 'large' && s.largeImg);
+    };
+
     return (
         <>
-            <img src={car.img} alt="Car Photo" className={s.img} />
+            <img src={src} alt={alt} className={buildImgClass(size)} />
         </>
     );
 };

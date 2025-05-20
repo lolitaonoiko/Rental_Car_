@@ -11,7 +11,7 @@ const CatalogCarsList = () => {
     const cars = useSelector(selectCars);
 
     return (
-        <div>
+        <>
             <ul className={s.carsList}>
                 {cars.map(car => (
                     <li key={car.id}>
@@ -19,7 +19,7 @@ const CatalogCarsList = () => {
                     </li>
                 ))}
             </ul>
-        </div>
+        </>
     );
 };
 
