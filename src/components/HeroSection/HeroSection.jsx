@@ -10,14 +10,14 @@ const HeroSection = () => {
         return navigate('/catalog');
     };
     return (
-        <div className={s.heroBack}>
+        <section className={s.heroBack}>
             <div>
                 <h2 className={s.title}>Find your perfect rental car</h2>
                 <p className={s.descr}>Reliable and budget-friendly rentals for any journey</p>
             </div>
 
             <Button onClick={handleBtnClick} text={'View Catalog'} big />
-        </div>
+        </section>
     );
 };
 

@@ -1,0 +1,21 @@
+.title {
+    font-weight: 600;
+    font-size: 20px;
+
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.listItem {
+    display: flex;
+    gap: 8px;
+}
+.property {
+    font-weight: 500;
+
+    line-height: 1.25;
+}

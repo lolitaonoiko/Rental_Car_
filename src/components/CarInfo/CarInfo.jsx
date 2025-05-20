@@ -21,17 +21,20 @@ const CarInfo = () => {
             <h2 className={s.title}>
                 {car.brand} {car.model}, {car.year}
             </h2>
-            <p className={s.id}>id:{car.id}</p>
-            <span className={s.icon}>
-                <svg width="16" height="16">
-                    <use href="/public/icons/sprite.svg#icon-location"></use>
-                </svg>
-            </span>
+            <details className={s.id}>
+                <summary>details:</summary>
+                <p>id:{car.id}</p>
+            </details>
             <div className={s.addressList}>
                 <p className={s.addrs}>
                     {city}, {country}
                 </p>
                 <p>Mileage: {car.mileage} km</p>
+                <span className={s.icon}>
+                    <svg width="16" height="16">
+                        <use href="/public/icons/sprite.svg#icon-location"></use>
+                    </svg>
+                </span>
             </div>
             <p className={s.price}>${car.rentalPrice}</p>
             <p className={s.desc}>{car.description}</p>

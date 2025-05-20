@@ -44,7 +44,7 @@ const CatalogCarItem = ({ car }) => {
     }, [isFav, car, dispatch]);
 
     return (
-        <div className={s.carItem}>
+        <section className={s.carItem}>
             <div>
                 <CarImage src={car.img} alt={'Small car photo'} />
                 <button onClick={handleOnClickFavBtn} className={buildFavClass(isFav)}>
@@ -70,7 +70,7 @@ const CatalogCarItem = ({ car }) => {
             <Link to={`/catalog/${car.id}`}>
                 <Button text={'Read more'} big />
             </Link>
-        </div>
+        </section>
     );
 };
 

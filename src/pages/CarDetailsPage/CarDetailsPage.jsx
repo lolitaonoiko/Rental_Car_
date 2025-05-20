@@ -1,6 +1,6 @@
-import { lazy, useEffect } from 'react';
+import { lazy, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { NavLink, useLocation, useParams } from 'react-router-dom';
 
 import { getCarById } from '../../redux/cars/operations';
 import { selectCarItem } from '../../redux/cars/selectors';
@@ -13,9 +13,15 @@ const CarImage = lazy(() => import('../../components/CarImage/CarImage'));
 const BookingForm = lazy(() => import('../../components/BookingForm/BookingForm'));
 const CarInfo = lazy(() => import('../../components/CarInfo/CarInfo'));
 const CarDetailsList = lazy(() => import('../../components/CarDetailsList/CarDetailsList'));
+const Button = lazy(() => import('../../components/Button/Button'));
 
 const CarDetailsPage = () => {
     const car = useSelector(selectCarItem);
+    const location = useLocation();
+    const goBackLink = useRef(location.state ?? '/catalog');
+
+    const { id } = useParams();
+    const dispatch = useDispatch();
 
     const accessories = Array.isArray(car?.accessories) ? car.accessories : [];
     const functionalities = Array.isArray(car?.functionalities) ? car.functionalities : [];
@@ -28,27 +34,27 @@ const CarDetailsPage = () => {
         isConfig: true,
     });
 
-    const { id } = useParams();
-    const dispatch = useDispatch();
-
     useEffect(() => {
         dispatch(getCarById(id));
-    });
+    }, [id, dispatch]);
 
     return (
         <section className={s.section}>
             <aside>
                 <CarImage src={car.img} alt={'Large car photo'} size="large" />
                 <BookingForm />
+                <NavLink to={goBackLink.current} className={s.backLink}>
+                    <Button text={'Back to Catalog'} loadMore />
+                </NavLink>
             </aside>
-            <div>
+            <section className={s.descrSection}>
                 <CarInfo />
                 <div className={s.descr}>
                     <CarDetailsList title={'Accessories and functionalities:'} list={fullListAccss} />
                     <CarDetailsList title={'Rental Conditions:'} list={rentalList} />
                     <CarDetailsList title={'Car Specifications:'} list={specificationsList} />
                 </div>
-            </div>
+            </section>
         </section>
     );
 };

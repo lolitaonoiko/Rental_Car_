@@ -12,7 +12,7 @@ const CarDetailsList = ({ list, title }) => {
                                 <use href={`/icons/sprite.svg#${el.icon}`}></use>
                             </svg>
                         </span>
-                        <p>{el.property}</p>
+                        <p className={s.property}>{el.property}</p>
                     </li>
                 ))}
             </ul>
