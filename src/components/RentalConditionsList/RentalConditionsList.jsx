@@ -2,7 +2,7 @@ import s from './RentalConditionsList.module.css';
 
 const RentalConditionsList = () => {
     return (
-        <div>
+        <section>
             <h3 className={s.title}>Rental Conditions:</h3>
             <ul className={s.list}>
                 <li className={s.listItem}>
