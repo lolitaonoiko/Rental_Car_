@@ -9,7 +9,7 @@ const CarDetailsList = ({ list, title }) => {
                     <li key={el.id} className={s.listItem}>
                         <span>
                             <svg width="16" height="16">
-                                <use href={`/public/icons/sprite.svg#${el.icon}`}></use>
+                                <use href={`/icons/sprite.svg#${el.icon}`}></use>
                             </svg>
                         </span>
                         <p>{el.property}</p>
