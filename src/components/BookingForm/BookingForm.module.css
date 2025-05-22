@@ -1,11 +1,8 @@
-.box {
-}
 .form {
     border: 1px solid #dadde1;
     border-radius: 10px;
     padding: 32px;
     width: 640px;
-    height: 488px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -20,8 +17,6 @@
     font-family: 'Manrope', sans-serif;
     font-weight: 500;
     font-size: 16px;
-    line-height: 1.25;
-    color: #8d929a;
     border-radius: 12px;
     padding: 12px 20px;
     width: 576px;
@@ -29,6 +24,9 @@
     background-color: #f7f7f7;
     border: none;
     outline: none;
+}
+.inpt::placeholder {
+    color: #8d929a;
 }
 .formText {
     margin-bottom: 24px;
@@ -38,8 +36,6 @@
     font-family: 'Manrope', sans-serif;
     font-weight: 500;
     font-size: 16px;
-    line-height: 1.25;
-    color: #8d929a;
     border-radius: 12px;
     padding: 12px 20px 56px 20px;
     width: 576px;
@@ -48,4 +44,7 @@
     border: none;
     outline: none;
     resize: none;
+}
+.textarea::placeholder {
+    color: #8d929a;
 }
