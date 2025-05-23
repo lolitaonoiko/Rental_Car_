@@ -1,5 +1,5 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { getBrands, getCarById, getCars } from './operations';
+import { getBrandsThunk, getCarByIdThunk, getCarsThunk } from './operations';
 
 const initialState = {
     cars: [],
@@ -40,7 +40,7 @@ const slice = createSlice({
 
     extraReducers: builder => {
         builder
-            .addCase(getCars.fulfilled, (state, action) => {
+            .addCase(getCarsThunk.fulfilled, (state, action) => {
                 state.isError = null;
                 state.isLoading = false;
                 state.totalPages = action.payload.totalPages;
@@ -53,18 +53,18 @@ const slice = createSlice({
                     state.cars = action.payload.cars;
                 }
             })
-            .addCase(getBrands.fulfilled, (state, action) => {
+            .addCase(getBrandsThunk.fulfilled, (state, action) => {
                 state.isError = null;
                 state.isLoading = false;
                 state.brands = action.payload;
             })
-            .addCase(getCarById.fulfilled, (state, action) => {
+            .addCase(getCarByIdThunk.fulfilled, (state, action) => {
                 state.isError = null;
                 state.isLoading = false;
                 state.carItem = action.payload;
             })
-            .addMatcher(isAnyOf(getBrands.pending, getCars.pending, getCarById.pending), handlePanding)
-            .addMatcher(isAnyOf(getBrands.rejected, getCars.rejected, getCarById.rejected), handleRejected);
+            .addMatcher(isAnyOf(getBrandsThunk.pending, getCarsThunk.pending, getCarByIdThunk.pending), handlePanding)
+            .addMatcher(isAnyOf(getBrandsThunk.rejected, getCarsThunk.rejected, getCarByIdThunk.rejected), handleRejected);
     },
 });
 

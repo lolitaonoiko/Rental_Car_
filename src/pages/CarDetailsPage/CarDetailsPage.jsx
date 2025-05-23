@@ -2,7 +2,7 @@ import { lazy, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useLocation, useParams } from 'react-router-dom';
 
-import { getCarById } from '../../redux/cars/operations';
+import { getCarByIdThunk } from '../../redux/cars/operations';
 import { selectCarItem } from '../../redux/cars/selectors';
 import { normalizeList } from '../../utils/normalizeList';
 import { SPECIFICATIONS_LIST, RENTAL_COND_LIST } from '../../constants/carDetailsConfig';
@@ -35,7 +35,7 @@ const CarDetailsPage = () => {
     });
 
     useEffect(() => {
-        dispatch(getCarById(id));
+        dispatch(getCarByIdThunk(id));
     }, [id, dispatch]);
 
     return (

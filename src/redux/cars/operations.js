@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { carRentalApi } from '../../api/carRentalApi';
 
-export const getCars = createAsyncThunk('cars/getAll', async ({ page = 1, filters = {} }, thunkAPI) => {
+export const getCarsThunk = createAsyncThunk('cars/getAll', async ({ page = 1, filters = {} }, thunkAPI) => {
     try {
         const { data } = await carRentalApi.get('/cars', {
             params: {
@@ -20,7 +20,7 @@ export const getCars = createAsyncThunk('cars/getAll', async ({ page = 1, filter
     }
 });
 
-export const getCarById = createAsyncThunk('cars/getCarById', async (id, thunkAPI) => {
+export const getCarByIdThunk = createAsyncThunk('cars/getCarById', async (id, thunkAPI) => {
     try {
         const { data } = await carRentalApi.get(`/cars/${id}`);
 
@@ -30,7 +30,7 @@ export const getCarById = createAsyncThunk('cars/getCarById', async (id, thunkAP
     }
 });
 
-export const getBrands = createAsyncThunk('brands/getAllBrands', async (_, thunkAPI) => {
+export const getBrandsThunk = createAsyncThunk('brands/getAllBrands', async (_, thunkAPI) => {
     try {
         const { data } = await carRentalApi.get('/brands');
 

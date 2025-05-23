@@ -2,7 +2,7 @@ import { lazy, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { selectBrands, selectCars, selectCarsIsLoading, selectCarsPage, selectCarsTotalPages } from '../../redux/cars/selectors';
-import { getBrands, getCars } from '../../redux/cars/operations';
+import { getBrandsThunk, getCarsThunk } from '../../redux/cars/operations';
 
 import s from './CatalogPage.module.css';
 
@@ -22,21 +22,21 @@ const CatalogPage = () => {
 
     useEffect(() => {
         if (!hasBrands.current && !brands.length) {
-            dispatch(getBrands());
+            dispatch(getBrandsThunk());
             hasBrands.current = true;
         }
     }, [dispatch, brands]);
 
     useEffect(() => {
         if (cars.length === 0 && totalPages === null) {
-            dispatch(getCars({ page: 1 }));
+            dispatch(getCarsThunk({ page: 1 }));
         }
     }, [dispatch, page, cars.length, totalPages]);
 
     const handleOnCLickBtn = e => {
         e.preventDefault();
         if (page < totalPages) {
-            dispatch(getCars({ page: page + 1 }));
+            dispatch(getCarsThunk({ page: page + 1 }));
         }
     };
 

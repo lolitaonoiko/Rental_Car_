@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 
 import { lazy } from 'react';
 import { selectBrands } from '../../redux/cars/selectors';
-import { getCars } from '../../redux/cars/operations';
+import { getCarsThunk } from '../../redux/cars/operations';
 
 const DropDown = lazy(() => import('../DropDown/DropDown'));
 const Button = lazy(() => import('../Button/Button'));
@@ -34,7 +34,7 @@ const FilterBar = () => {
             maxMileage: inputTo,
         };
 
-        dispatch(getCars({ filters }));
+        dispatch(getCarsThunk({ filters }));
     };
 
     return (

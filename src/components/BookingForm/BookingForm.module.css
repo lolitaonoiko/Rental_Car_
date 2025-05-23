@@ -44,6 +44,7 @@
     border: none;
     outline: none;
     resize: none;
+    overflow: hidden;
 }
 .textarea::placeholder {
     color: #8d929a;
