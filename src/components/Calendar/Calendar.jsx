@@ -1,31 +1,29 @@
-import s from './Calendar.module.css';
+import dayjs from 'dayjs';
 
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
-import dayjs from 'dayjs';
+
+import s from './Calendar.module.css';
 
 export default function Calendar({ onChange, value, error }) {
-    const parsedValue = value ? dayjs(value, 'DD.MM.YY') : null;
     return (
         <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DemoContainer components={['DatePicker']}>
                 <DesktopDatePicker
+                    minDate={dayjs()}
                     onChange={onChange}
-                    value={parsedValue}
+                    value={value ? dayjs(value) : null}
                     label="Booking a date"
-                    format="DD.MM.YY"
+                    format="DD-MM-YYYY"
                     slotProps={{
                         textField: {
                             error: !!error,
                             helperText: error,
-                            // className: s.input,
-                            InputLabelProps: {
-                                className: s.noShrinkLabel,
+                            FormHelperTextProps: {
+                                className: s.errorText,
                             },
-
                             InputProps: {
                                 className: s.input,
                             },

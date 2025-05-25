@@ -7,30 +7,23 @@
     flex-direction: column;
     justify-content: center;
 }
-.inpts {
+.formText {
+    margin-bottom: 24px;
+    align-items: start;
+}
+.descr {
+    font-weight: 500;
+    color: #8d929a;
+}
+.inptsBox {
     display: flex;
     flex-direction: column;
     gap: 16px;
     margin-bottom: 24px;
 }
-.inpt {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    border-radius: 12px;
-    padding: 12px 20px;
-    width: 576px;
-    height: 48px;
-    background-color: #f7f7f7;
-    border: none;
-    outline: none;
-}
-.inpt::placeholder {
-    color: #8d929a;
-}
-.formText {
-    margin-bottom: 24px;
-    align-items: start;
+
+.textareaWrapper {
+    position: relative;
 }
 .textarea {
     font-family: 'Manrope', sans-serif;
@@ -39,13 +32,32 @@
     border-radius: 12px;
     padding: 12px 20px 56px 20px;
     width: 576px;
-    height: 88px;
     background-color: #f7f7f7;
     border: none;
     outline: none;
     resize: none;
-    overflow: hidden;
 }
-.textarea::placeholder {
+.label {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    transition: 0.2s ease;
+
+    pointer-events: none;
+    font-weight: 500;
     color: #8d929a;
+}
+.textarea:focus + .label,
+.textarea:not(:placeholder-shown) + .label {
+    top: -8px;
+    left: 10px;
+    font-size: 12px;
+    padding: 0 4px;
+}
+.error {
+    color: rgb(190, 22, 22);
+    font-size: 11px;
+    display: block;
+    padding-left: 18px;
+    line-height: 1;
 }

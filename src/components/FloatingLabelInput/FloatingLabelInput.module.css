@@ -1,19 +1,11 @@
 .inputWrapper {
     position: relative;
-    margin-bottom: 16px;
 }
 
 .input {
-    width: 100%;
-    padding: 14px 10px 6px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    outline: none;
-
-    font-family: 'Manrope', sans-serif;
     font-weight: 500;
     font-size: 16px;
+    border: 1px solid #ccc;
     border-radius: 12px;
     padding: 12px 20px;
     width: 576px;
@@ -25,11 +17,13 @@
 
 .label {
     position: absolute;
-    top: 12px;
-    left: 12px;
+    top: 14px;
+    left: 14px;
     transition: 0.2s ease;
-    color: #666;
+
     pointer-events: none;
+    font-weight: 500;
+    color: #8d929a;
 }
 
 .input:focus + .label,
@@ -37,17 +31,12 @@
     top: -8px;
     left: 10px;
     font-size: 12px;
-    background-color: white;
     padding: 0 4px;
 }
 
 .error {
-    color: red;
-    font-size: 12px;
-    margin-top: 4px;
+    color: rgb(190, 22, 22);
+    font-size: 11px;
     display: block;
-}
-
-.errorInput {
-    border-color: red;
+    padding-left: 18px;
 }
