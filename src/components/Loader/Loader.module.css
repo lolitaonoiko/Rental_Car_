@@ -1,0 +1,15 @@
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(239, 233, 233, 0.474); /* напівпрозорий фон */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* поверх усього */
+}
+#loaderId {
+    position: absolute;
+}

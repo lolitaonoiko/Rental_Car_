@@ -1,4 +1,4 @@
-import { lazy, useEffect, useRef } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { selectBrands, selectCars, selectCarsIsLoading, selectCarsPage, selectCarsTotalPages } from '../../redux/cars/selectors';
@@ -18,12 +18,10 @@ const CatalogPage = () => {
     const page = useSelector(selectCarsPage);
     const totalPages = useSelector(selectCarsTotalPages);
     const dispatch = useDispatch();
-    const hasBrands = useRef(false);
 
     useEffect(() => {
-        if (!hasBrands.current && !brands.length) {
+        if (brands.length === 0) {
             dispatch(getBrandsThunk());
-            hasBrands.current = true;
         }
     }, [dispatch, brands]);
 
@@ -43,10 +41,12 @@ const CatalogPage = () => {
     return (
         <section className={s.section}>
             <FilterBar />
-            {totalPages !== 0 && <CatalogCarsList />}
-            {page < totalPages && !isLoading && <Button text="Load More" loadMore onClick={handleOnCLickBtn} />}
-            {isLoading && <Loader />}
-            {totalPages === 0 && <p>No cars were found for the selected parameters.</p>}
+            <Suspense fallback={<Loader forSusp />}>
+                {totalPages !== 0 && <CatalogCarsList />}
+                {page < totalPages && !isLoading && <Button text="Load More" outlined onClick={handleOnCLickBtn} />}
+                {isLoading && <Loader forSusp />}
+                {totalPages === 0 && <p>No cars were found for the selected parameters.</p>}
+            </Suspense>
         </section>
     );
 };

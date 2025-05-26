@@ -44,7 +44,7 @@ const CarDetailsPage = () => {
                 <CarImage src={car.img} alt={'Large car photo'} size="large" />
                 <BookingForm />
                 <NavLink to={goBackLink.current} className={s.backLink}>
-                    <Button text={'Back to Catalog'} loadMore />
+                    <Button text={'Back to Catalog'} outlined />
                 </NavLink>
             </aside>
             <section className={s.descrSection}>

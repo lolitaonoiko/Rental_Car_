@@ -37,6 +37,8 @@ const FilterBar = () => {
         dispatch(getCarsThunk({ filters }));
     };
 
+    // const handleOnClickClear = () => {};
+
     return (
         <>
             <form className={s.form} onSubmit={handleSubmit}>
@@ -51,6 +53,7 @@ const FilterBar = () => {
                 </div>
 
                 <Button text={'Search'} type={'submit'} />
+                <Button text={'Clear'} outlined />
             </form>
         </>
     );
