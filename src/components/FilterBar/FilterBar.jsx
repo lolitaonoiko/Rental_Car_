@@ -1,10 +1,14 @@
-import { useDispatch, useSelector } from 'react-redux';
-import s from './FilterBar.module.css';
 import { toast } from 'react-toastify';
 
+import { useDispatch, useSelector } from 'react-redux';
 import { lazy } from 'react';
-import { selectBrands } from '../../redux/cars/selectors';
+
+import { selectBrands, selectFilters } from '../../redux/cars/selectors';
 import { getCarsThunk } from '../../redux/cars/operations';
+import { clearFilters, setFilters } from '../../redux/cars/slice';
+import { PRICES } from '../../constants/carDetailsConfig';
+
+import s from './FilterBar.module.css';
 
 const DropDown = lazy(() => import('../DropDown/DropDown'));
 const Button = lazy(() => import('../Button/Button'));
@@ -12,48 +16,57 @@ const FilterInput = lazy(() => import('../FilterInput/FilterInput'));
 
 const FilterBar = () => {
     const brands = useSelector(selectBrands);
+    const filters = useSelector(selectFilters);
 
-    const prices = [30, 40, 50, 60, 70, 80];
     const dispatch = useDispatch();
+
+    const handleChange = (field, value) => {
+        dispatch(setFilters({ [field]: value }));
+    };
+
+    const createChangeHandler = field => e => {
+        handleChange(field, e.target.value);
+    };
 
     const handleSubmit = e => {
         e.preventDefault();
-        const brandValue = e.target.elements[0].value;
-        const priceValue = e.target.elements[1].value;
-        const inputFrom = e.target.elements[2].value.replace(/\s/g, '');
-        const inputTo = e.target.elements[3].value.replace(/\s/g, '');
-
-        if ((brandValue === '') & (priceValue === '') & (inputFrom === '') & (inputTo === '')) {
+        if (!filters.brand && !filters.rentalPrice && !filters.minMileage && !filters.maxMileage) {
             toast.error('Please enter your search queries');
+            return;
         }
+        const cleanMinMileage = filters.minMileage ? filters.minMileage.replace(/,/g, '') : '';
+        const cleanMaxMileage = filters.maxMileage ? filters.maxMileage.replace(/,/g, '') : '';
 
-        const filters = {
-            brand: brandValue,
-            rentalPrice: priceValue,
-            minMileage: inputFrom,
-            maxMileage: inputTo,
+        const preparedFilters = {
+            brand: filters.brand,
+            rentalPrice: filters.rentalPrice,
+            minMileage: cleanMinMileage,
+            maxMileage: cleanMaxMileage,
         };
-
-        dispatch(getCarsThunk({ filters }));
+        dispatch(getCarsThunk({ filters: preparedFilters }));
     };
 
-    // const handleOnClickClear = () => {};
+    const handleOnClickClear = () => {
+        dispatch(clearFilters());
+
+        dispatch(getCarsThunk({}));
+    };
 
     return (
         <>
             <form className={s.form} onSubmit={handleSubmit}>
-                <DropDown items={brands} text={'Choose a brand'} />
-                <DropDown items={prices} text={'Choose a price'} />
+                <DropDown descr={'Car brand'} items={brands} text={'Choose a brand'} value={filters.brand} onChange={createChangeHandler('brand')} />
+                <DropDown descr={'Price/ 1 hour'} items={PRICES} text={'Choose a price'} value={filters.rentalPrice} onChange={createChangeHandler('rentalPrice')} />
 
                 <div>
                     <p className={s.mileageText}>Car mileage / km</p>
-                    <FilterInput type={'number'} placeholder={'From'} />
+                    <FilterInput type={'number'} placeholder={'From'} value={filters.minMileage} onChange={createChangeHandler('minMileage')} />
 
-                    <FilterInput type={'number'} placeholder={'To'} typeTo />
+                    <FilterInput type={'number'} placeholder={'To'} typeTo value={filters.maxMileage} onChange={createChangeHandler('maxMileage')} />
                 </div>
 
                 <Button text={'Search'} type={'submit'} />
-                <Button text={'Clear'} outlined />
+                <Button text={'Clear'} outlined onClick={handleOnClickClear} />
             </form>
         </>
     );

@@ -20,3 +20,8 @@
     color: #8d929a;
     margin-bottom: 7px;
 }
+
+.selectedValue {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+}

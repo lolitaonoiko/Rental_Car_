@@ -36,6 +36,17 @@ const slice = createSlice({
                 state.favorites.push(action.payload);
             }
         },
+        setFilters: (state, action) => {
+            state.filters = { ...state.filters, ...action.payload };
+        },
+        clearFilters: state => {
+            state.filters = {
+                brand: '',
+                rentalPrice: '',
+                minMileage: '',
+                maxMileage: '',
+            };
+        },
     },
 
     extraReducers: builder => {
@@ -70,4 +81,4 @@ const slice = createSlice({
 
 export default slice.reducer;
 
-export const { addFavCar } = slice.actions;
+export const { addFavCar, setFilters, clearFilters } = slice.actions;

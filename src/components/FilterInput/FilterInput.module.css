@@ -26,8 +26,10 @@
 
 .label {
     position: absolute;
-    top: 12px;
+    top: 11px;
     left: 24px;
     font-weight: 500;
     line-height: 1.25;
+    padding: 0;
+    color: #101828;
 }

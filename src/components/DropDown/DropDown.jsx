@@ -1,26 +1,21 @@
-import * as React from 'react';
-
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
+import { lazy, useRef, useState } from 'react';
+
 import s from './DropDown.module.css';
 
-const FilterBarIcon = React.lazy(() => import('../FilterBarIcon/FilterBarIcon'));
+const FilterBarIcon = lazy(() => import('../FilterBarIcon/FilterBarIcon'));
 
-export default function DropDown({ items, text }) {
-    const [item, setItem] = React.useState('');
-    const [open, setOpen] = React.useState(false);
-    const selectRef = React.useRef(null);
-
-    const handleChange = event => {
-        setItem(event.target.value);
-    };
+export default function DropDown({ items, descr, text, value, onChange }) {
+    const [open, setOpen] = useState(false);
+    const selectRef = useRef(null);
 
     return (
         <>
             <FormControl sx={{ minWidth: 120 }}>
-                <p className={s.selectDescr}>Car brand</p>
+                <p className={s.selectDescr}>{descr}</p>
                 <Select
                     MenuProps={{
                         PaperProps: {
@@ -39,10 +34,21 @@ export default function DropDown({ items, text }) {
                             },
                         },
                     }}
+                    renderValue={selected => {
+                        if (!selected) return <em className={s.text}>{text}</em>;
+
+                        return descr === 'Price/ 1 hour' ? (
+                            <span className={s.selectedValue}>
+                                To&nbsp;<span className={s.dollar}>${selected}</span>
+                            </span>
+                        ) : (
+                            selected
+                        );
+                    }}
                     disableUnderline
                     variant="standard"
-                    value={item}
-                    onChange={handleChange}
+                    value={value}
+                    onChange={onChange}
                     className={s.sel}
                     displayEmpty
                     inputProps={{ 'aria-label': 'Without label' }}
@@ -62,5 +68,3 @@ export default function DropDown({ items, text }) {
         </>
     );
 }
-
-//IconComponent={() => <FilterBarIcon open={open} onClick={handleOnClickIcon} />}

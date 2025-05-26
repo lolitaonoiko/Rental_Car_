@@ -8,22 +8,13 @@
     overflow: hidden;
 }
 
-fieldset {
-    border-width: 0px;
-    border-style: none !important;
-    border-image: none !important;
-
-    padding: 0;
-}
-label {
+.label {
     line-height: 1 !important;
-    padding-left: 5px !important;
     color: #8d929a !important;
 }
 
 .errorText {
     font-family: 'Manrope', sans-serif;
-
     color: rgb(190, 22, 22) !important;
     line-height: 1.4;
     font-size: 11px;
@@ -31,6 +22,5 @@ label {
     padding-left: 18px;
     margin: 0;
     font-weight: 400;
-
     letter-spacing: 0;
 }

@@ -24,6 +24,9 @@ export default function Calendar({ onChange, value, error }) {
                             FormHelperTextProps: {
                                 className: s.errorText,
                             },
+                            InputLabelProps: {
+                                className: s.label,
+                            },
                             InputProps: {
                                 className: s.input,
                             },

@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { carRentalApi } from '../../api/carRentalApi';
 
-export const getCarsThunk = createAsyncThunk('cars/getAll', async ({ page = 1, filters = {} }, thunkAPI) => {
+export const getCarsThunk = createAsyncThunk('cars/getAllCars', async ({ page = 1, filters = {} }, thunkAPI) => {
     try {
         const { data } = await carRentalApi.get('/cars', {
             params: {

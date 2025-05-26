@@ -6,3 +6,4 @@ export const SPECIFICATIONS_LIST = [
 ];
 
 export const RENTAL_COND_LIST = ['Minimum age: 25', 'Security deposite required', 'Valid driver`s license'];
+export const PRICES = [30, 40, 50, 60, 70, 80];
