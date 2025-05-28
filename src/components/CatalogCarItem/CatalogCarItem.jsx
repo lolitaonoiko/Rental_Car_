@@ -1,33 +1,43 @@
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
 import { lazy, useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
 
+import { addFavCar, deleteFavCar } from '../../redux/cars/slice';
 import s from './CatalogCarItem.module.css';
-import { addFavCar } from '../../redux/cars/slice';
+import { selectFavorites } from '../../redux/cars/selectors';
 
 const Button = lazy(() => import('../Button/Button'));
 const CarImage = lazy(() => import('../CarImage/CarImage'));
 
 const CatalogCarItem = ({ car }) => {
+    const favorites = useSelector(selectFavorites);
     const [city, setCity] = useState('');
     const [country, setCountry] = useState('');
+
     const [isFav, setIsFav] = useState('icon-like-default');
 
     const dispatch = useDispatch();
 
+    const buildFavClass = isFav => {
+        return clsx(s.favBtn, isFav === 'icon-like-active' && s.favBtnActv);
+    };
+
     const handleOnClickFavBtn = () => {
         if (isFav === 'icon-like-default') {
+            dispatch(addFavCar(car));
             setIsFav('icon-like-active');
         } else {
+            dispatch(deleteFavCar(car));
             setIsFav('icon-like-default');
         }
     };
 
-    const buildFavClass = isFav => {
-        return clsx(s.favBtn, isFav === 'icon-like-active' && s.favBtnActv);
-    };
+    useEffect(() => {
+        const isAlreadyFav = favorites.some(item => item.id === car.id);
+        setIsFav(isAlreadyFav ? 'icon-like-active' : 'icon-like-default');
+    }, [car, favorites]);
 
     useEffect(() => {
         if (car.address && typeof car.address === 'string') {
@@ -36,12 +46,6 @@ const CatalogCarItem = ({ car }) => {
             setCountry(splitedAddress[2]?.trim() || '');
         }
     }, [car.address]);
-
-    useEffect(() => {
-        if (isFav === 'icon-like-active') {
-            dispatch(addFavCar(car));
-        }
-    }, [isFav, car, dispatch]);
 
     return (
         <section className={s.carItem}>

@@ -1,19 +1,23 @@
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-
-import { useSelector } from 'react-redux';
+import { PiTrashSimpleLight } from 'react-icons/pi';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+
+import { selectFavorites } from '../../redux/cars/selectors';
+import { addFavCar, deleteFavCar } from '../../redux/cars/slice';
 
 import s from './FavoritesList.module.css';
 
-import { selectFavorites } from '../../redux/cars/selectors';
-
 const FavoritesList = () => {
+    const favorites = useSelector(selectFavorites);
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const handleClick = event => {
         setAnchorEl(event.currentTarget);
@@ -21,12 +25,21 @@ const FavoritesList = () => {
     const handleClose = () => {
         setAnchorEl(null);
     };
-    const handleOpenDateils = id => {
+    const handleOpenDetailsOnCLick = id => {
         navigate(`/catalog/${id}`);
         setAnchorEl(null);
     };
+    const handleDeleteOnClick = car => {
+        dispatch(deleteFavCar(car));
+        console.log(car);
+    };
 
-    const favorites = useSelector(selectFavorites);
+    useEffect(() => {
+        const storageFavList = JSON.parse(localStorage.getItem('favorites'));
+        if (Array.isArray(storageFavList)) {
+            storageFavList.forEach(car => dispatch(addFavCar(car)));
+        }
+    }, [dispatch]);
 
     return (
         <>
@@ -49,16 +62,20 @@ const FavoritesList = () => {
             >
                 {favorites.length === 0 && (
                     <MenuItem className={s.menuItem} onClick={handleClose}>
-                        You have not added any offers to your favorites yet
+                        You have not added any cars to your favorites yet
                     </MenuItem>
                 )}
-                {favorites.map(item => (
-                    <MenuItem key={item.id} onClick={() => handleOpenDateils(item.id)}>
-                        <p className={s.menuItem}>
-                            {item.brand} {item.model}, {item.year} - <span className={s.spanPrice}>${item.rentalPrice}</span>
-                        </p>
-                    </MenuItem>
-                ))}
+                {favorites &&
+                    favorites.map(item => (
+                        <MenuItem key={item.id}>
+                            <div className={s.favMenu}>
+                                <p className={s.menuItem} onClick={() => handleOpenDetailsOnCLick(item.id)}>
+                                    {item.brand} {item.model}, {item.year} - <span className={s.spanPrice}>${item.rentalPrice}</span>
+                                </p>
+                                <PiTrashSimpleLight className={s.deleteIcon} onClick={() => handleDeleteOnClick(item)} />
+                            </div>
+                        </MenuItem>
+                    ))}
             </Menu>
         </>
     );

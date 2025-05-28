@@ -32,9 +32,18 @@ const slice = createSlice({
     initialState,
     reducers: {
         addFavCar: (state, action) => {
-            if (!state.favorites.includes(action.payload)) {
+            const exists = state.favorites.find(car => car.id === action.payload.id);
+            if (!exists) {
                 state.favorites.push(action.payload);
             }
+            localStorage.setItem('favorites', JSON.stringify(state.favorites));
+        },
+        deleteFavCar: (state, action) => {
+            state.favorites = state.favorites.filter(car => car.id !== action.payload.id);
+            localStorage.setItem('favorites', JSON.stringify(state.favorites));
+        },
+        resetCars: state => {
+            state.cars = [];
         },
         setFilters: (state, action) => {
             state.filters = { ...state.filters, ...action.payload };
@@ -81,4 +90,4 @@ const slice = createSlice({
 
 export default slice.reducer;
 
-export const { addFavCar, setFilters, clearFilters } = slice.actions;
+export const { addFavCar, setFilters, clearFilters, resetCars, deleteFavCar } = slice.actions;

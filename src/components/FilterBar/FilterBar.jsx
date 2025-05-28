@@ -5,7 +5,7 @@ import { lazy } from 'react';
 
 import { selectBrands, selectFilters } from '../../redux/cars/selectors';
 import { getCarsThunk } from '../../redux/cars/operations';
-import { clearFilters, setFilters } from '../../redux/cars/slice';
+import { clearFilters, resetCars, setFilters } from '../../redux/cars/slice';
 import { PRICES } from '../../constants/carDetailsConfig';
 
 import s from './FilterBar.module.css';
@@ -44,6 +44,8 @@ const FilterBar = () => {
             maxMileage: cleanMaxMileage,
         };
         dispatch(getCarsThunk({ filters: preparedFilters }));
+
+        dispatch(resetCars());
     };
 
     const handleOnClickClear = () => {
