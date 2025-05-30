@@ -50,7 +50,7 @@
 
 1. **Клонуйте репозиторій:**
 
-git clone git@github.com:lolitaonoiko/Rental*Car*.git
+git clone https://git@github.com:lolitaonoiko/Rental*Car*.git
 
 2. **Перейдіть до папки проєкту:**
 
