@@ -13,7 +13,7 @@ const BurgerMenu = () => {
             <div className={s.wrapper}>
                 <Hamburger easing="ease-in" toggled={isOpen} toggle={setOpen} size={20} direction="right" label="Show menu" />
             </div>
-            {isOpen && <Navigation burgerMenu onClose={() => setOpen(false)} isOpen />}
+            {isOpen && <Navigation onClose={() => setOpen(false)} />}
         </>
     );
 };

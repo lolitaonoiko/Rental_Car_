@@ -12,12 +12,13 @@ import { addFavCar, deleteFavCar } from '../../redux/cars/slice';
 
 import s from './FavoritesList.module.css';
 
-const FavoritesList = ({ onClick }) => {
+const FavoritesList = () => {
     const favorites = useSelector(selectFavorites);
-    const [anchorEl, setAnchorEl] = useState(null);
-    const open = Boolean(anchorEl);
     const navigate = useNavigate();
     const dispatch = useDispatch();
+
+    const [anchorEl, setAnchorEl] = useState(null);
+    const open = Boolean(anchorEl);
 
     const handleClick = event => {
         setAnchorEl(event.currentTarget);
@@ -26,7 +27,6 @@ const FavoritesList = ({ onClick }) => {
         setAnchorEl(null);
     };
     const handleOpenDetailsOnCLick = id => {
-        onClick();
         navigate(`/catalog/${id}`);
         setAnchorEl(null);
     };
@@ -42,7 +42,7 @@ const FavoritesList = ({ onClick }) => {
     }, [dispatch]);
 
     return (
-        <>
+        <div>
             <Button id="basic-button" aria-controls={open ? 'basic-menu' : undefined} aria-haspopup="true" aria-expanded={open ? 'true' : undefined} onClick={handleClick} className={s.btnFav}>
                 <svg width="16" height="16" className={s.favIcon}>
                     <use href="/icons/sprite.svg#icon-like-active"></use>
@@ -77,7 +77,7 @@ const FavoritesList = ({ onClick }) => {
                         </MenuItem>
                     ))}
             </Menu>
-        </>
+        </div>
     );
 };
 

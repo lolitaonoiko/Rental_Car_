@@ -7,6 +7,7 @@ import s from './Header.module.css';
 const Logo = lazy(() => import('../Logo/Logo'));
 const Navigation = lazy(() => import('../Navigation/Navigation'));
 const BurgerMenu = lazy(() => import('../BurgerMenu/BurgerMenu'));
+const FavoritesList = lazy(() => import('../FavoritesList/FavoritesList'));
 
 const Header = () => {
     const { isMobile, isTablet } = useMedia();
@@ -15,7 +16,14 @@ const Header = () => {
         <header className={s.header}>
             <Logo />
             {isTablet && <Navigation />}
-            {isMobile && <BurgerMenu />}
+            {isMobile && (
+                <>
+                    <span className={s.span}>
+                        <FavoritesList />
+                    </span>
+                    <BurgerMenu />
+                </>
+            )}
         </header>
     );
 };

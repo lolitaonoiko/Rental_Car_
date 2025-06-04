@@ -11,11 +11,15 @@
     align-items: center;
     z-index: 10;
 }
-.mobNavList {
+.navList {
     display: flex;
     flex-direction: column;
+
     justify-content: center;
     align-items: center;
+    gap: 32px;
+}
+.mobNavList {
     gap: 6px;
     .favListItem {
         order: 1;
@@ -23,12 +27,6 @@
         padding-bottom: 18px;
     }
 }
-/* .navList {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 32px;
-} */
 
 .link {
     color: #101828;
