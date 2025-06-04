@@ -73,3 +73,5 @@ textarea {
 .Mui-focused .MuiOutlinedInput-notchedOutline {
     border-width: 0 !important;
 }
+.MuiList-root {
+}

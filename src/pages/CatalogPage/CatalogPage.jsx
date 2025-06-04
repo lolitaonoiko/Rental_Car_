@@ -40,7 +40,7 @@ const CatalogPage = () => {
 
     return (
         <section className={s.section}>
-            <FilterBar />
+            {/* <FilterBar /> */}
             <Suspense fallback={<Loader forSusp />}>
                 {totalPages !== 0 && <CatalogCarsList />}
                 {page < totalPages && !isLoading && <Button text="Load More" outlined onClick={handleOnCLickBtn} />}

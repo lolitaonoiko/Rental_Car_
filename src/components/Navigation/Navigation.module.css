@@ -1,9 +1,34 @@
-.navList {
+.mobBox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(247, 245, 245, 0.89);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+.mobNavList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    .favListItem {
+        order: 1;
+        padding-top: 18px;
+        padding-bottom: 18px;
+    }
+}
+/* .navList {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 32px;
-}
+} */
 
 .link {
     color: #101828;

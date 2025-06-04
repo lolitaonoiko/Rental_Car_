@@ -5,10 +5,10 @@ const Loader = lazy(() => import('../Loader/Loader.jsx'));
 
 const Layout = ({ children }) => {
     return (
-        <div>
+        <section>
             <Header />
             <Suspense fallback={<Loader forSusp />}>{children}</Suspense>
-        </div>
+        </section>
     );
 };
 

@@ -12,7 +12,7 @@ import { addFavCar, deleteFavCar } from '../../redux/cars/slice';
 
 import s from './FavoritesList.module.css';
 
-const FavoritesList = () => {
+const FavoritesList = ({ onClick }) => {
     const favorites = useSelector(selectFavorites);
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
@@ -26,12 +26,12 @@ const FavoritesList = () => {
         setAnchorEl(null);
     };
     const handleOpenDetailsOnCLick = id => {
+        onClick();
         navigate(`/catalog/${id}`);
         setAnchorEl(null);
     };
     const handleDeleteOnClick = car => {
         dispatch(deleteFavCar(car));
-        console.log(car);
     };
 
     useEffect(() => {

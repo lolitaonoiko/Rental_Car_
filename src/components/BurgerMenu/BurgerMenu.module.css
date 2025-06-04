@@ -1,0 +1,9 @@
+.iconMenu {
+    /* fill: black; */
+}
+.wrapper {
+    position: fixed;
+    top: 8px;
+    right: 8px;
+    z-index: 10000;
+}
