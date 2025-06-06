@@ -4,32 +4,75 @@
 }
 .typeFrom {
     border-radius: 12px 0 0 12px;
-    width: 160px;
-    height: 44px;
+    width: 90px;
+    height: 40px;
     background-color: #f7f7f7;
     outline: transparent;
     border-color: transparent;
     border-right: 1px solid #dadde1;
-    padding-top: 12px;
+    padding-top: 14px;
     padding-bottom: 12px;
-    padding-right: 24px;
-    padding-left: 65px;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.25;
+    padding-right: 4px;
+    padding-left: 20px;
+
+    font-size: 12px;
 }
 .typeTo {
     border-radius: 0 12px 12px 0;
     border-right: none;
-    padding-left: 45px;
+    padding-left: 20px;
 }
 
 .label {
     position: absolute;
-    top: 11px;
-    left: 24px;
+    top: 4px;
+    left: 8px;
     font-weight: 500;
     line-height: 1.25;
     padding: 0;
     color: #101828;
+    font-size: 8px;
+}
+
+@media screen and (min-width: 768px) {
+    .inptBox {
+        position: relative;
+        display: inline-block;
+    }
+    .typeFrom {
+        border-radius: 12px 0 0 12px;
+        width: 160px;
+        height: 44px;
+        background-color: #f7f7f7;
+        outline: transparent;
+        border-color: transparent;
+        border-right: 1px solid #dadde1;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        padding-right: 24px;
+        padding-left: 65px;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 1.25;
+    }
+    .typeTo {
+        border-radius: 0 12px 12px 0;
+        border-right: none;
+        padding-left: 45px;
+    }
+    /* .mobile {
+        width: 90px;
+
+        height: 44px;
+    } */
+    .label {
+        position: absolute;
+        top: 11px;
+        left: 24px;
+        font-weight: 500;
+        line-height: 1.25;
+        font-size: 16px;
+        padding: 0;
+        color: #101828;
+    }
 }

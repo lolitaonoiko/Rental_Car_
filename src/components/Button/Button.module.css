@@ -26,3 +26,15 @@
     border-color: #0b44cd;
     background-color: transparent;
 }
+.btnMob {
+    width: 60px;
+    height: 30px;
+    font-size: 12px;
+}
+@media screen and (min-width: 768px) {
+    .btnMob {
+        width: 156px;
+        height: 44px;
+        font-size: 16px;
+    }
+}

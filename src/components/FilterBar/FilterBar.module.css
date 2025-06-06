@@ -1,16 +1,27 @@
-.form {
-    display: flex;
-    justify-content: center;
-    align-items: end;
-    gap: 16px;
-    padding: 16px;
-    margin-bottom: 40px;
-}
 .mileageText {
     font-weight: 400;
-    font-size: 12px;
+    font-size: 6px;
 
     line-height: 1.33333;
     color: #8d929a;
-    margin-bottom: 8px;
+    margin-bottom: 2px;
+}
+@media screen and (min-width: 768px) {
+    .form {
+        display: flex;
+        justify-content: center;
+        align-items: end;
+        gap: 16px;
+        padding: 16px;
+        margin-bottom: 40px;
+    }
+
+    .mileageText {
+        font-weight: 400;
+        font-size: 12px;
+
+        line-height: 1.33333;
+        color: #8d929a;
+        margin-bottom: 8px;
+    }
 }

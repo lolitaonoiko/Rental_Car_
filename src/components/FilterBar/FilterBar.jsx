@@ -1,5 +1,9 @@
 import { toast } from 'react-toastify';
 
+import { Menu, MenuItem, MenuButton, SubMenu } from '@szhsin/react-menu';
+import '@szhsin/react-menu/dist/index.css';
+import '@szhsin/react-menu/dist/transitions/zoom.css';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { lazy } from 'react';
 
@@ -9,6 +13,7 @@ import { clearFilters, resetCars, setFilters } from '../../redux/cars/slice';
 import { PRICES } from '../../constants/carDetailsConfig';
 
 import s from './FilterBar.module.css';
+import useMedia from '../../hooks/useMedia';
 
 const DropDown = lazy(() => import('../DropDown/DropDown'));
 const Button = lazy(() => import('../Button/Button'));
@@ -17,6 +22,8 @@ const FilterInput = lazy(() => import('../FilterInput/FilterInput'));
 const FilterBar = () => {
     const brands = useSelector(selectBrands);
     const filters = useSelector(selectFilters);
+
+    const { isMobile, isTablet, isDesktop } = useMedia();
 
     const dispatch = useDispatch();
 
@@ -57,9 +64,30 @@ const FilterBar = () => {
     return (
         <>
             <form className={s.form} onSubmit={handleSubmit}>
-                <DropDown descr={'Car brand'} items={brands} text={'Choose a brand'} value={filters.brand} onChange={createChangeHandler('brand')} />
-                <DropDown descr={'Price/ 1 hour'} items={PRICES} text={'Choose a price'} value={filters.rentalPrice} onChange={createChangeHandler('rentalPrice')} />
-
+                {isMobile && (
+                    <Menu menuButton={<MenuButton className={s.mobileMenuButton}>Filters</MenuButton>} transition>
+                        <SubMenu label="Brand">
+                            {brands.map(brand => (
+                                <MenuItem key={brand} onClick={() => handleChange('brand', brand)}>
+                                    {brand}
+                                </MenuItem>
+                            ))}
+                        </SubMenu>
+                        <SubMenu label="Price">
+                            {PRICES.map(price => (
+                                <MenuItem key={price} onClick={() => handleChange('rentalPrice', price)}>
+                                    {price}
+                                </MenuItem>
+                            ))}
+                        </SubMenu>
+                    </Menu>
+                )}
+                {isDesktop && (
+                    <>
+                        <DropDown descr={'Car brand'} items={brands} text={'Choose a brand'} value={filters.brand} onChange={createChangeHandler('brand')} />
+                        <DropDown descr={'Price/ 1 hour'} items={PRICES} text={'Choose a price'} value={filters.rentalPrice} onChange={createChangeHandler('rentalPrice')} />
+                    </>
+                )}
                 <div>
                     <p className={s.mileageText}>Car mileage / km</p>
                     <FilterInput type={'number'} placeholder={'From'} value={filters.minMileage} onChange={createChangeHandler('minMileage')} />
@@ -67,8 +95,8 @@ const FilterBar = () => {
                     <FilterInput type={'number'} placeholder={'To'} typeTo value={filters.maxMileage} onChange={createChangeHandler('maxMileage')} />
                 </div>
 
-                <Button text={'Search'} type={'submit'} />
-                <Button text={'Clear'} outlined onClick={handleOnClickClear} />
+                <Button text={'Search'} type={'submit'} fltrBtn />
+                <Button text={'Clear'} outlined onClick={handleOnClickClear} fltrBtn />
             </form>
         </>
     );

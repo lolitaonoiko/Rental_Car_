@@ -11,7 +11,7 @@ const BurgerMenu = () => {
     return (
         <>
             <div className={s.wrapper}>
-                <Hamburger easing="ease-in" toggled={isOpen} toggle={setOpen} size={20} direction="right" label="Show menu" />
+                <Hamburger easing="ease-in" toggled={isOpen} toggle={setOpen} size={20} label="Show menu" />
             </div>
             {isOpen && <Navigation onClose={() => setOpen(false)} />}
         </>

@@ -1,10 +1,12 @@
 import { NumericFormat } from 'react-number-format';
 import clsx from 'clsx';
 import { useId } from 'react';
+import useMedia from '../../hooks/useMedia';
 
 import s from './FilterInput.module.css';
 
 const FilterInput = ({ typeTo = false, placeholder, value, onChange }) => {
+    const { isMobile } = useMedia();
     const inputId = useId();
     return (
         <div className={s.inptBox}>
@@ -18,7 +20,7 @@ const FilterInput = ({ typeTo = false, placeholder, value, onChange }) => {
                 thousandSeparator=","
                 allowNegative={false}
                 allowLeadingZeros={false}
-                className={clsx(s.typeFrom, typeTo && s.typeTo)}
+                className={clsx(s.typeFrom, isMobile && s.mobile, typeTo && s.typeTo)}
                 inputMode="numeric"
             />
         </div>

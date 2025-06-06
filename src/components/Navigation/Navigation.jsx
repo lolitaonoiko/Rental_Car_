@@ -15,15 +15,15 @@ const Navigation = ({ onClose }) => {
         return clsx(s.link, isActive && s.active);
     };
 
-    const buildMobBoxClass = isMobile => {
-        return clsx(isMobile && s.mobBox);
+    const buildMobWrapperClass = isMobile => {
+        return clsx(isMobile && s.mobWrapper);
     };
 
     const buildMobNavClass = isMobile => {
         return clsx(s.navList, isMobile && s.mobNavList);
     };
     return (
-        <div className={buildMobBoxClass(isMobile)}>
+        <div className={buildMobWrapperClass(isMobile)}>
             <nav>
                 <ul className={buildMobNavClass(isMobile)}>
                     {isTablet && (

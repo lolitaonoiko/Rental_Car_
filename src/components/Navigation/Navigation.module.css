@@ -1,4 +1,4 @@
-.mobBox {
+.mobWrapper {
     position: fixed;
     top: 0;
     left: 0;
@@ -13,13 +13,14 @@
 }
 .navList {
     display: flex;
-    flex-direction: column;
 
     justify-content: center;
     align-items: center;
     gap: 32px;
 }
 .mobNavList {
+    flex-direction: column;
+
     gap: 6px;
     .favListItem {
         order: 1;
