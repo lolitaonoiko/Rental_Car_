@@ -1,9 +1,5 @@
 import { toast } from 'react-toastify';
 
-import { Menu, MenuItem, MenuButton, SubMenu } from '@szhsin/react-menu';
-import '@szhsin/react-menu/dist/index.css';
-import '@szhsin/react-menu/dist/transitions/zoom.css';
-
 import { useDispatch, useSelector } from 'react-redux';
 import { lazy } from 'react';
 
@@ -64,30 +60,28 @@ const FilterBar = () => {
     return (
         <>
             <form className={s.form} onSubmit={handleSubmit}>
-                {isMobile && (
-                    <Menu menuButton={<MenuButton className={s.mobileMenuButton}>Filters</MenuButton>} transition>
-                        <SubMenu label="Brand">
+                {/* {isMobile && (
+                    <>
+                        <Menu menuButton={<MenuButton className={s.mobileMenuButton}>Choose a brand</MenuButton>} transition>
                             {brands.map(brand => (
                                 <MenuItem key={brand} onClick={() => handleChange('brand', brand)}>
                                     {brand}
                                 </MenuItem>
                             ))}
-                        </SubMenu>
-                        <SubMenu label="Price">
+                        </Menu>
+                        <Menu menuButton={<MenuButton className={s.mobileMenuButton}>Choose a price</MenuButton>} transition>
                             {PRICES.map(price => (
                                 <MenuItem key={price} onClick={() => handleChange('rentalPrice', price)}>
                                     {price}
                                 </MenuItem>
                             ))}
-                        </SubMenu>
-                    </Menu>
-                )}
-                {isDesktop && (
-                    <>
-                        <DropDown descr={'Car brand'} items={brands} text={'Choose a brand'} value={filters.brand} onChange={createChangeHandler('brand')} />
-                        <DropDown descr={'Price/ 1 hour'} items={PRICES} text={'Choose a price'} value={filters.rentalPrice} onChange={createChangeHandler('rentalPrice')} />
+                        </Menu>
                     </>
-                )}
+                )} */}
+
+                <DropDown descr={'Car brand'} items={brands} text={'Choose a brand'} value={filters.brand} onChange={createChangeHandler('brand')} />
+                <DropDown descr={'Price/ 1 hour'} items={PRICES} text={'Choose a price'} value={filters.rentalPrice} onChange={createChangeHandler('rentalPrice')} />
+
                 <div>
                     <p className={s.mileageText}>Car mileage / km</p>
                     <FilterInput type={'number'} placeholder={'From'} value={filters.minMileage} onChange={createChangeHandler('minMileage')} />
