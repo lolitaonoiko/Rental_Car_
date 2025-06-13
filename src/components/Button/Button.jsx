@@ -13,7 +13,7 @@ const Button = ({ text, big = false, outlined = false, onClick, type = 'button',
         <button type={type} onClick={onClick} className={buildBtnClass()}>
             {fltrBtn && isMobile ? (
                 <svg width="14" height="14">
-                    <use href={`public/icons/sprite.svg#icon-${text}`}></use>
+                    <use href={`/icons/sprite.svg#icon-${text}`}></use>
                 </svg>
             ) : (
                 text
