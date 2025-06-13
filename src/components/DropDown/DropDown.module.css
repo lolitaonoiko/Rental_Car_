@@ -1,16 +1,19 @@
 .sel {
     border-radius: 12px;
     padding: 12px 16px;
-    width: 164px;
+    width: 134px;
     height: 40px;
     border-color: transparent;
     background-color: #f7f7f7;
     outline: transparent;
+    margin-right: 2px;
 }
+
 .text {
     font-family: 'Manrope', sans-serif;
     font-style: normal;
     font-weight: 500;
+    font-size: 12px;
 }
 .selectDescr {
     font-weight: 400;
@@ -24,8 +27,16 @@
     font-family: 'Manrope', sans-serif;
     font-weight: 500;
 }
-
 @media screen and (min-width: 768px) {
+    .selectDescr {
+        font-size: 10px;
+    }
+    .text {
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
     .sel {
         border-radius: 12px;
         padding: 12px 16px;
@@ -34,6 +45,7 @@
         border-color: transparent;
         background-color: #f7f7f7;
         outline: transparent;
+        margin: 0;
     }
     .text {
         font-family: 'Manrope', sans-serif;

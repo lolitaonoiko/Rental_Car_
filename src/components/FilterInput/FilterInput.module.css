@@ -1,26 +1,26 @@
 .inptBox {
     position: relative;
-    display: inline-block;
+    /* display: inline-block; */
 }
 .typeFrom {
-    border-radius: 12px 0 0 12px;
-    width: 90px;
+    border-radius: 12px;
+    width: 60px;
     height: 40px;
     background-color: #f7f7f7;
     outline: transparent;
     border-color: transparent;
-    border-right: 1px solid #dadde1;
+    /* border-right: 1px solid #dadde1; */
     padding-top: 14px;
     padding-bottom: 12px;
     padding-right: 4px;
-    padding-left: 20px;
+    padding-left: 10px;
 
     font-size: 12px;
 }
 .typeTo {
-    border-radius: 0 12px 12px 0;
+    border-radius: 12px;
     border-right: none;
-    padding-left: 20px;
+    padding-left: 10px;
 }
 
 .label {
@@ -34,7 +34,7 @@
     font-size: 8px;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1280px) {
     .inptBox {
         position: relative;
         display: inline-block;

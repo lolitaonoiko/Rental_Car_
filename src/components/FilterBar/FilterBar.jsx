@@ -78,19 +78,23 @@ const FilterBar = () => {
                         </Menu>
                     </>
                 )} */}
+                <span className={s.dropSpan}>
+                    <DropDown descr={'Car brand'} items={brands} text={'Choose a brand'} value={filters.brand} onChange={createChangeHandler('brand')} />
+                    <DropDown descr={'Price/ 1 hour'} items={PRICES} text={'Choose a price'} value={filters.rentalPrice} onChange={createChangeHandler('rentalPrice')} />
+                </span>
 
-                <DropDown descr={'Car brand'} items={brands} text={'Choose a brand'} value={filters.brand} onChange={createChangeHandler('brand')} />
-                <DropDown descr={'Price/ 1 hour'} items={PRICES} text={'Choose a price'} value={filters.rentalPrice} onChange={createChangeHandler('rentalPrice')} />
-
-                <div>
+                <div className={s.inptBox}>
                     <p className={s.mileageText}>Car mileage / km</p>
-                    <FilterInput type={'number'} placeholder={'From'} value={filters.minMileage} onChange={createChangeHandler('minMileage')} />
+                    <span className={s.inptSpan}>
+                        <FilterInput type={'number'} placeholder={'From'} value={filters.minMileage} onChange={createChangeHandler('minMileage')} />
 
-                    <FilterInput type={'number'} placeholder={'To'} typeTo value={filters.maxMileage} onChange={createChangeHandler('maxMileage')} />
+                        <FilterInput type={'number'} placeholder={'To'} typeTo value={filters.maxMileage} onChange={createChangeHandler('maxMileage')} />
+                    </span>
+                    <span className={s.btnSpan}>
+                        <Button text={'Search'} type={'submit'} fltrBtn />
+                        <Button text={'Clear'} outlined onClick={handleOnClickClear} fltrBtn />
+                    </span>
                 </div>
-
-                <Button text={'Search'} type={'submit'} fltrBtn />
-                <Button text={'Clear'} outlined onClick={handleOnClickClear} fltrBtn />
             </form>
         </>
     );
