@@ -19,13 +19,10 @@ const Navigation = ({ onClose }) => {
         return clsx(isMobile && s.mobWrapper);
     };
 
-    const buildMobNavClass = isMobile => {
-        return clsx(s.navList, isMobile && s.mobNavList);
-    };
     return (
         <div className={buildMobWrapperClass(isMobile)}>
             <nav>
-                <ul className={buildMobNavClass(isMobile)}>
+                <ul className={s.navList}>
                     {isTablet && (
                         <li className={s.favListItem}>
                             <FavoritesList />

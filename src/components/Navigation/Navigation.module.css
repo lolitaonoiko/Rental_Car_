@@ -13,14 +13,10 @@
 }
 .navList {
     display: flex;
+    flex-direction: column;
 
     justify-content: center;
     align-items: center;
-    gap: 32px;
-}
-.mobNavList {
-    flex-direction: column;
-
     gap: 6px;
     .favListItem {
         order: 1;
@@ -39,4 +35,11 @@
 }
 .link.active {
     color: #0b44cd;
+}
+
+@media only screen and (min-width: 768px) {
+    .navList {
+        gap: 32px;
+        flex-direction: row;
+    }
 }

@@ -15,7 +15,10 @@
 @media only screen and (min-width: 768px) {
     .header {
         padding-left: 60px;
-        padding-right: 60px;
+        padding-right: 38px;
+    }
+    .span {
+        padding: 0;
     }
 }
 

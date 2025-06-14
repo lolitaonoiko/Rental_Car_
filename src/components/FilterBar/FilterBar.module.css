@@ -27,11 +27,15 @@
     gap: 4px;
 }
 
-@media screen and (min-width: 768px) {
+@media only screen and (min-width: 768px) {
     .form {
         display: flex;
         align-items: center;
         padding-bottom: 26px;
+    }
+    .mileageText {
+        font-size: 10px;
+        top: -2px;
     }
     .inptBox {
         justify-content: center;
@@ -39,21 +43,18 @@
         gap: 10px;
         padding-bottom: 0;
     }
-    .mileageText {
-        font-size: 10px;
-        top: -2px;
-    }
 }
-@media screen and (min-width: 1280px) {
-    .dropSpan {
-        display: flex;
-        gap: 16px;
-    }
+@media only screen and (min-width: 1280px) {
     .form {
         align-items: end;
         gap: 16px;
         padding: 16px;
         margin-bottom: 40px;
+    }
+    .mileageText {
+        display: block;
+        font-size: 12px;
+        top: -22px;
     }
     .inptBox {
         padding: 0;
@@ -65,9 +66,8 @@
     .btnSpan {
         gap: 10px;
     }
-    .mileageText {
-        display: block;
-        font-size: 12px;
-        top: -22px;
+    .dropSpan {
+        display: flex;
+        gap: 16px;
     }
 }
