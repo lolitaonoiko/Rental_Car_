@@ -9,7 +9,6 @@ import { clearFilters, resetCars, setFilters } from '../../redux/cars/slice';
 import { PRICES } from '../../constants/carDetailsConfig';
 
 import s from './FilterBar.module.css';
-import useMedia from '../../hooks/useMedia';
 
 const DropDown = lazy(() => import('../DropDown/DropDown'));
 const Button = lazy(() => import('../Button/Button'));
@@ -18,8 +17,6 @@ const FilterInput = lazy(() => import('../FilterInput/FilterInput'));
 const FilterBar = () => {
     const brands = useSelector(selectBrands);
     const filters = useSelector(selectFilters);
-
-    const { isMobile, isTablet, isDesktop } = useMedia();
 
     const dispatch = useDispatch();
 
@@ -60,24 +57,6 @@ const FilterBar = () => {
     return (
         <>
             <form className={s.form} onSubmit={handleSubmit}>
-                {/* {isMobile && (
-                    <>
-                        <Menu menuButton={<MenuButton className={s.mobileMenuButton}>Choose a brand</MenuButton>} transition>
-                            {brands.map(brand => (
-                                <MenuItem key={brand} onClick={() => handleChange('brand', brand)}>
-                                    {brand}
-                                </MenuItem>
-                            ))}
-                        </Menu>
-                        <Menu menuButton={<MenuButton className={s.mobileMenuButton}>Choose a price</MenuButton>} transition>
-                            {PRICES.map(price => (
-                                <MenuItem key={price} onClick={() => handleChange('rentalPrice', price)}>
-                                    {price}
-                                </MenuItem>
-                            ))}
-                        </Menu>
-                    </>
-                )} */}
                 <span className={s.dropSpan}>
                     <DropDown descr={'Car brand'} items={brands} text={'Choose a brand'} value={filters.brand} onChange={createChangeHandler('brand')} />
                     <DropDown descr={'Price/ 1 hour'} items={PRICES} text={'Choose a price'} value={filters.rentalPrice} onChange={createChangeHandler('rentalPrice')} />
