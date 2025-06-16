@@ -1,7 +1,9 @@
 import { useSelector } from 'react-redux';
-import s from './CarInfo.module.css';
-import { selectCarItem } from '../../redux/cars/selectors';
 import { useEffect, useState } from 'react';
+
+import { selectCarItem } from '../../redux/cars/selectors';
+
+import s from './CarInfo.module.css';
 
 const CarInfo = () => {
     const car = useSelector(selectCarItem);
@@ -29,7 +31,7 @@ const CarInfo = () => {
                 <p className={s.addrs}>
                     {city}, {country}
                 </p>
-                <p>Mileage: {car.mileage} km</p>
+                <p className={s.mileage}>Mileage: {car.mileage} km</p>
                 <span className={s.icon}>
                     <svg width="16" height="16">
                         <use href="/public/icons/sprite.svg#icon-location"></use>

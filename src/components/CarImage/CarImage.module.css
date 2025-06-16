@@ -7,7 +7,15 @@
 }
 .largeImg {
     border-radius: 19px;
-    width: 640px;
-    height: 512px;
-    margin-bottom: 40px;
+    width: 276px;
+    height: 268px;
+    margin-bottom: 0;
+}
+@media only screen and (min-width: 768px) {
+    .largeImg {
+        border-radius: 19px;
+        width: 640px;
+        height: 512px;
+        margin-bottom: 40px;
+    }
 }

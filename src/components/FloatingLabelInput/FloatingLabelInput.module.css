@@ -8,7 +8,7 @@
     border: 1px solid #ccc;
     border-radius: 12px;
     padding: 12px 20px;
-    width: 576px;
+    width: 212px;
     height: 48px;
     background-color: #f7f7f7;
     border: none;
@@ -39,4 +39,49 @@
     font-size: 11px;
     display: block;
     padding-left: 18px;
+}
+
+@media only screen and (min-width: 768px) {
+    .inputWrapper {
+        position: relative;
+    }
+
+    .input {
+        font-weight: 500;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 12px;
+        padding: 12px 20px;
+        width: 576px;
+        height: 48px;
+        background-color: #f7f7f7;
+        border: none;
+        outline: none;
+    }
+
+    .label {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        transition: 0.2s ease;
+
+        pointer-events: none;
+        font-weight: 500;
+        color: #8d929a;
+    }
+
+    .input:focus + .label,
+    .input:not(:placeholder-shown) + .label {
+        top: -8px;
+        left: 10px;
+        font-size: 12px;
+        padding: 0 4px;
+    }
+
+    .error {
+        color: rgb(190, 22, 22);
+        font-size: 11px;
+        display: block;
+        padding-left: 18px;
+    }
 }

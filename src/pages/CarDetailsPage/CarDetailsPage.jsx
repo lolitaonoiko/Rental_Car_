@@ -8,6 +8,7 @@ import { normalizeList } from '../../utils/normalizeList';
 import { SPECIFICATIONS_LIST, RENTAL_COND_LIST } from '../../constants/carDetailsConfig';
 
 import s from './CarDetailsPage.module.css';
+import useMedia from '../../hooks/useMedia';
 
 const CarImage = lazy(() => import('../../components/CarImage/CarImage'));
 const BookingForm = lazy(() => import('../../components/BookingForm/BookingForm'));
@@ -19,6 +20,7 @@ const CarDetailsPage = () => {
     const car = useSelector(selectCarItem);
     const location = useLocation();
     const goBackLink = useRef(location.state ?? '/catalog');
+    const { isMobile, isTablet } = useMedia();
 
     const { id } = useParams();
     const dispatch = useDispatch();
@@ -42,9 +44,9 @@ const CarDetailsPage = () => {
         <section className={s.section}>
             <aside>
                 <CarImage src={car.img} alt={'Large car photo'} size="large" />
-                <BookingForm />
+                {isTablet && <BookingForm />}
                 <NavLink to={goBackLink.current} className={s.backLink}>
-                    <Button text={'Back to Catalog'} outlined />
+                    <Button text={'Back to Catalog'} outlined detlsBtn={isMobile} />
                 </NavLink>
             </aside>
             <section className={s.descrSection}>
@@ -54,6 +56,7 @@ const CarDetailsPage = () => {
                     <CarDetailsList title={'Rental Conditions:'} list={rentalList} />
                     <CarDetailsList title={'Car Specifications:'} list={specificationsList} />
                 </div>
+                {isMobile && <BookingForm />}
             </section>
         </section>
     );

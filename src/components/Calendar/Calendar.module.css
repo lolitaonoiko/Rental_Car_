@@ -2,7 +2,7 @@
     border-radius: 12px;
 
     padding: 12px 20px;
-    width: 574px;
+    width: 212px;
     height: 48px;
     background-color: #f7f7f7;
     overflow: hidden;
@@ -23,4 +23,32 @@
     margin: 0;
     font-weight: 400;
     letter-spacing: 0;
+}
+@media only screen and (min-width: 768px) {
+    .input {
+        border-radius: 12px;
+
+        padding: 12px 20px;
+        width: 574px;
+        height: 48px;
+        background-color: #f7f7f7;
+        overflow: hidden;
+    }
+
+    .label {
+        line-height: 1 !important;
+        color: #8d929a !important;
+    }
+
+    .errorText {
+        font-family: 'Manrope', sans-serif;
+        color: rgb(190, 22, 22) !important;
+        line-height: 1.4;
+        font-size: 11px;
+        display: block;
+        padding-left: 18px;
+        margin: 0;
+        font-weight: 400;
+        letter-spacing: 0;
+    }
 }

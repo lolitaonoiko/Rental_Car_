@@ -1,22 +1,28 @@
 .box {
-    margin-bottom: 68px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 28px;
+    width: 300px;
 }
 .title {
     font-weight: 600;
-    font-size: 24px;
+    font-size: 18px;
 
     color: #101828;
 }
 .id {
     font-weight: 500;
-    font-size: 14px;
+    font-size: 12px;
     color: #8d929a;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
     cursor: pointer;
 }
 
 .mileage {
-    display: inline;
+    font-size: 12px;
+}
+.addrs {
+    font-size: 12px;
 }
 .addressList {
     position: relative;
@@ -29,15 +35,65 @@
 }
 .price {
     font-weight: 600;
-    font-size: 24px;
+    font-size: 16px;
     color: #3470ff;
-    margin-bottom: 32px;
+    margin-bottom: 12px;
 }
 .desc {
     font-weight: 500;
+    font-size: 12px;
     color: #101828;
 }
 .icon {
     position: absolute;
     left: 0;
+}
+@media only screen and (min-width: 768px) {
+    .box {
+        margin-bottom: 68px;
+    }
+    .title {
+        font-weight: 600;
+        font-size: 24px;
+
+        color: #101828;
+    }
+    .id {
+        font-weight: 500;
+        font-size: 14px;
+        color: #8d929a;
+        margin-bottom: 8px;
+        cursor: pointer;
+    }
+
+    .mileage {
+        font-size: 16px;
+    }
+    .addrs {
+        font-size: 16px;
+    }
+    .addressList {
+        position: relative;
+        display: flex;
+        font-weight: 500;
+        gap: 16px;
+
+        margin-bottom: 16px;
+        padding-left: 18px;
+    }
+    .price {
+        font-weight: 600;
+        font-size: 24px;
+        color: #3470ff;
+        margin-bottom: 32px;
+    }
+    .desc {
+        font-weight: 500;
+        color: #101828;
+        font-size: 16px;
+    }
+    .icon {
+        position: absolute;
+        left: 0;
+    }
 }

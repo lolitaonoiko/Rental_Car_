@@ -69,8 +69,9 @@ const BookingForm = () => {
                     {formErrors.comment && <span className={s.error}>{formErrors.comment}</span>}
                 </div>
             </div>
-
-            <Button text={'Send'} type="submit" />
+            <span className={s.btnSpan}>
+                <Button text={'Send'} type="submit" />
+            </span>
         </form>
     );
 };
