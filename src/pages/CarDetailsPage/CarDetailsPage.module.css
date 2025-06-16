@@ -25,7 +25,11 @@
     flex-direction: column;
     gap: 20px;
     justify-content: start;
+
+    /* justify-content: center; */
     margin-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .backLink {
     position: absolute;
@@ -42,6 +46,7 @@
         padding-top: 84px;
         padding-bottom: 104px;
         gap: 72px;
+        width: auto;
     }
     .descrSection {
         justify-content: start;

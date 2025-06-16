@@ -26,8 +26,8 @@ const Button = ({ text, big = false, outlined = false, onClick, type = 'button',
                     </svg>
                 );
             }
-            return text;
         }
+        return text;
     };
     return (
         <button type={type} onClick={onClick} className={buildBtnClass()}>

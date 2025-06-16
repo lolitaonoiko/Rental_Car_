@@ -51,6 +51,7 @@
 @media only screen and (min-width: 768px) {
     .box {
         margin-bottom: 68px;
+        width: auto;
     }
     .title {
         font-weight: 600;
