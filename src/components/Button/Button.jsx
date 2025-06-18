@@ -7,7 +7,7 @@ const Button = ({ text, big = false, outlined = false, onClick, type = 'button',
     const { isMobile } = useMedia();
 
     const buildBtnClass = () => {
-        return clsx(s.btnSmall, fltrBtn && s.btnMob, big && s.btnBig, outlined && s.btnLoadMore);
+        return clsx(s.btnSmall, fltrBtn && s.btnMob, big && s.btnBig, outlined && s.btnLoadMore, detlsBtn && s.dtlsBtn);
     };
 
     const renderContent = () => {

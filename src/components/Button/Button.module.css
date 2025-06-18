@@ -34,7 +34,10 @@
     height: 30px;
     font-size: 12px;
 }
-
+.dtlsBtn {
+    width: 30px;
+    height: 30px;
+}
 @media only screen and (min-width: 768px) {
     .btnMob {
         width: 156px;

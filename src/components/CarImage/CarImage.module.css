@@ -13,9 +13,14 @@
 }
 @media only screen and (min-width: 768px) {
     .largeImg {
-        border-radius: 19px;
+        width: 400px;
+        height: 312px;
+        margin-bottom: 40px;
+    }
+}
+@media only screen and (min-width: 1280px) {
+    .largeImg {
         width: 640px;
         height: 512px;
-        margin-bottom: 40px;
     }
 }

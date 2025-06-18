@@ -1,7 +1,6 @@
 .title {
     font-weight: 600;
     font-size: 16px;
-
     line-height: 1.2;
     margin-bottom: 10px;
 }
@@ -17,31 +16,24 @@
 }
 .property {
     font-weight: 500;
-
     line-height: 1.25;
 }
 
 @media only screen and (min-width: 768px) {
     .title {
-        font-weight: 600;
-        font-size: 20px;
-
-        line-height: 1.2;
         margin-bottom: 20px;
     }
     .list {
-        font-size: 16px;
-        display: flex;
-        flex-direction: column;
+        font-size: 14px;
         gap: 16px;
     }
-    .listItem {
-        display: flex;
-        gap: 8px;
-    }
-    .property {
-        font-weight: 500;
+}
 
-        line-height: 1.25;
+@media only screen and (min-width: 1280px) {
+    .title {
+        font-size: 20px;
+    }
+    .list {
+        font-size: 16px;
     }
 }

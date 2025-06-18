@@ -17,7 +17,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* padding-top: 20px; */
     padding-bottom: 20px;
 }
 .descr {
@@ -25,8 +24,6 @@
     flex-direction: column;
     gap: 20px;
     justify-content: start;
-
-    /* justify-content: center; */
     margin-bottom: 20px;
     padding-left: 10px;
     padding-right: 10px;
@@ -37,31 +34,29 @@
 }
 @media only screen and (min-width: 768px) {
     .section {
-        display: flex;
         flex-direction: row;
-        margin: 0 auto;
-        max-width: 1220px;
-        padding-left: 10px;
-        padding-right: 10px;
-        padding-top: 84px;
-        padding-bottom: 104px;
-        gap: 72px;
+        align-items: start;
+        gap: 22px;
         width: auto;
     }
     .descrSection {
         justify-content: start;
         align-items: start;
-        padding-top: 20px;
-        padding-bottom: 20px;
+        padding-bottom: 0;
     }
     .descr {
-        display: flex;
-        flex-direction: column;
-        gap: 110px;
-        justify-content: start;
+        gap: 50px;
+        margin-bottom: 0;
     }
-    .backLink {
-        position: absolute;
-        top: 88px;
+}
+@media only screen and (min-width: 1280px) {
+    .section {
+        gap: 72px;
+    }
+    .descrSection {
+        padding-top: 20px;
+    }
+    .descr {
+        gap: 110px;
     }
 }

@@ -55,6 +55,7 @@
     }
     .typeTo {
         border-radius: 0 12px 12px 0;
+        border-right: none;
         padding-left: 45px;
     }
     .label {
