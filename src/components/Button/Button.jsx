@@ -22,7 +22,7 @@ const Button = ({ text, big = false, outlined = false, onClick, type = 'button',
             if (detlsBtn) {
                 return (
                     <svg width="16" height="16">
-                        <use href={`/icons/sprite.svg#icon-back`}></use>
+                        <use href={'/icons/sprite.svg#icon-back-arrow'}></use>
                     </svg>
                 );
             }
