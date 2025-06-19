@@ -3,7 +3,7 @@
 }
 .typeFrom {
     border-radius: 12px;
-    width: 90px;
+    width: 100px;
     height: 40px;
     background-color: #f7f7f7;
     outline: transparent;
@@ -11,28 +11,37 @@
     padding-top: 14px;
     padding-bottom: 12px;
     padding-right: 4px;
-    padding-left: 10px;
+    padding-left: 36px;
     font-size: 12px;
 }
 .typeTo {
     border-radius: 12px;
     border-right: none;
-    padding-left: 10px;
+    padding-left: 20px;
 }
 
 .label {
     position: absolute;
-    top: 4px;
-    left: 8px;
+    top: 13px;
+    left: 6px;
     font-weight: 500;
     line-height: 1.25;
     padding: 0;
     color: #101828;
-    font-size: 8px;
+    font-size: 12px;
 }
 @media only screen and (min-width: 768px) {
     .typeFrom {
-        width: 60px;
+        width: 100px;
+        padding-left: 40px;
+        font-size: 14px;
+    }
+    .typeTo {
+        padding-left: 24px;
+    }
+    .label {
+        font-size: 14px;
+        top: 11px;
     }
 }
 @media only screen and (min-width: 1280px) {

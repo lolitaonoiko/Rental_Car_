@@ -38,7 +38,15 @@
     width: 30px;
     height: 30px;
 }
+
 @media only screen and (min-width: 768px) {
+    .btnMob {
+        width: 100px;
+        height: 40px;
+        font-size: 16px;
+    }
+}
+@media only screen and (min-width: 1280px) {
     .btnMob {
         width: 156px;
         height: 44px;

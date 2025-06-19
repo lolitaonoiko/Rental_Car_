@@ -2,7 +2,6 @@
     padding-left: 10px;
     padding-right: 10px;
     margin-bottom: 28px;
-    width: 300px;
 }
 .title {
     font-weight: 600;
@@ -17,10 +16,10 @@
     cursor: pointer;
 }
 .mileage {
-    font-size: 12px;
+    font-size: 14px;
 }
 .addrs {
-    font-size: 12px;
+    font-size: 14px;
 }
 .addressList {
     position: relative;
@@ -38,7 +37,7 @@
 }
 .desc {
     font-weight: 500;
-    font-size: 12px;
+    font-size: 14px;
     color: #101828;
 }
 .icon {
@@ -55,26 +54,17 @@
     .id {
         margin-bottom: 8px;
     }
-
-    .mileage {
-        font-size: 14px;
+    .desc {
+        width: 300px;
     }
-    .addrs {
-        font-size: 14px;
-    }
-
     .price {
         font-size: 20px;
         margin-bottom: 32px;
-    }
-    .desc {
-        font-size: 14px;
     }
 }
 @media only screen and (min-width: 1280px) {
     .box {
         margin-bottom: 68px;
-        width: auto;
     }
     .title {
         font-size: 24px;
@@ -94,5 +84,6 @@
     }
     .desc {
         font-size: 16px;
+        width: 480px;
     }
 }
